@@ -1,2 +1,7 @@
-*.agdai
-MAlonzo/**
+node_modules
+.env
+dist
+worker
+wrangler.toml
+dist
+dev.toml

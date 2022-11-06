@@ -1,0 +1,6 @@
+POST http://localhost:7001/webhook
+Content-Type: application/json
+
+{
+  "challengeId":"63627b92152200674feaeb16"
+}
