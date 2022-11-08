@@ -23,46 +23,58 @@ module.exports  = function
         }
 
 
-        // const { addChallenge } = require('./challenge/add-challenge')
-        // (
-        //     APPID,
-        //     APIKEY,
-        //     proxyAgent,
-        //     fetch
-        // );
+        const { addUser } = require('./user/add-user')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+        
+        const { getUserByTelegramId } = require('./user/get-user-by-telegram-id')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        );
 
-        // const { getAllChallengeByEvent } = require('./challenge/get-all-challenge-by-event')
-        // (
-        //     APPID,
-        //     APIKEY,
-        //     proxyAgent,
-        //     fetch
-        // )
+        const { getChallengeByTelegramMessageId } = require('./challenge/get-challenge-by-telegram-message-id')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
 
         
-        // const { getChallengeById } = require('./challenge/get-challenge-by-id')
-        // (
-        //     APPID,
-        //     APIKEY,
-        //     proxyAgent,
-        //     fetch
-        // )
+        
 
         
-        // const { setChallengeChannelMessageId } = require('./challenge/set-challenge-channel-message-id')
-        // (
-        //     APPID,
-        //     APIKEY,
-        //     proxyAgent,
-        //     fetch
-        // )
+        const { getUserChallengeByUserAndChallenge } = require('./user-challenge/get-user-challenge-by-user-and-challenge')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        const { addUserChallenge } = require('./user-challenge/add-user-challenge')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+        
 
         return Object.freeze(
             {
-                // addChallenge,
-                // getAllChallengeByEvent,
-                // getChallengeById,
-                // setChallengeChannelMessageId
+                addUser,
+                getUserByTelegramId,
+                getChallengeByTelegramMessageId,
+                getUserChallengeByUserAndChallenge,
+                addUserChallenge
             }
         );
 

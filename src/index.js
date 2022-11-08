@@ -7,7 +7,8 @@ const telegramBotServices = require('./use-cases')(
     process.env.PROXY_URL,
     {
         CHALNNEL_ID :process.env.CHALNNEL_ID,
-        BOT_TOKEN :process.env.BOT_TOKEN
+        BOT_TOKEN :process.env.BOT_TOKEN,
+        WEBHOOK_URL :process.env.WEBHOOK_URL
     }
 );
 

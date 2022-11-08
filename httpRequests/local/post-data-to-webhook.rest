@@ -1,6 +1,4 @@
 POST http://localhost:7001/webhook
 Content-Type: application/json
 
-{
-  "challengeId":"63627b92152200674feaeb16"
-}
+{"update_id":833038260,"callback_query":{"id":"242719464723946748","from":{"id":56512529,"is_bot":false,"first_name":"Xad","username":"MohsenXad","language_code":"en"},"message":{"message_id":31,"sender_chat":{"id":-1001506909554,"title":"WorldCup2022","username":"QatarWoldCup","type":"channel"},"chat":{"id":-1001506909554,"title":"WorldCup2022","username":"QatarWoldCup","type":"channel"},"date":1667825429,"photo":[{"file_id":"AgACAgQAAx0EWdGdcgADH2No_xXkyEkjoU_6cIf1_cb2kCmmAAIwrzEb3Uk8U9thDRyxMXe9AQADAgADcwADKwQ","file_unique_id":"AQADMK8xG91JPFN4","file_size":679,"width":90,"height":52},{"file_id":"AgACAgQAAx0EWdGdcgADH2No_xXkyEkjoU_6cIf1_cb2kCmmAAIwrzEb3Uk8U9thDRyxMXe9AQADAgADbQADKwQ","file_unique_id":"AQADMK8xG91JPFNy","file_size":4400,"width":320,"height":185},{"file_id":"AgACAgQAAx0EWdGdcgADH2No_xXkyEkjoU_6cIf1_cb2kCmmAAIwrzEb3Uk8U9thDRyxMXe9AQADAgADeAADKwQ","file_unique_id":"AQADMK8xG91JPFN9","file_size":5084,"width":369,"height":213}],"caption":"Challenge is برنده مسابقه","reply_markup":{"inline_keyboard":[[{"text":"سویس","callback_data":"63627c0694748f8e6c67fcad"}],[{"text":"کامرون","callback_data":"63627c0694748f8e6c67fcae"}],[{"text":"مساوی","callback_data":"63627c0694748f8e6c67fcaf"}]]}},"chat_instance":"5081994145762947562","data":"63627c0694748f8e6c67fcad"}}

@@ -16,18 +16,18 @@ module.exports = function(
         );
 
         
-        // const { sendPhoto }  = require('./send-photo')(
-        //     BOT_TOKEN,
-        //     proxyAgent,
-        //     fetch,
-        //     generateInlineKeyboardMarkup
-        // );
+        const { answerCallbackQuery }  = require('./answer-callback-query')(
+            BOT_TOKEN,
+            proxyAgent,
+            fetch
+        );
 
         
 
         const services = Object.freeze(
             {
-                setWebhook
+                setWebhook,
+                answerCallbackQuery
             }
         )
 

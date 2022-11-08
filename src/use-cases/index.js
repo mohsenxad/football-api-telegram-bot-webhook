@@ -1,5 +1,5 @@
 const buildSetWebhook = require('./set-webhook');
-// const buildGetAllChallengeByEvent = require('./get-all-challenge-by-event');
+const buildProccessMessage = require('./proccess-message');
 // const buildPostChallengeOnTelegramChannel = require('./post-challenge-on-telegram-channel');
 
 module.exports = function(
@@ -27,9 +27,15 @@ module.exports = function(
             BOT_TOKEN
         )
 
-        const setWebhook = buildSetWebhook();
-        //setWebhook(WEBHOOK_URL)
-        // const getAllChallengeByEvent = buildGetAllChallengeByEvent(dataAccess);
+        const setWebhook = buildSetWebhook(
+            providerServices
+        );
+        setWebhook(WEBHOOK_URL)
+
+        const proccessMessage = buildProccessMessage(
+            dataAccess,
+            providerServices
+        );
         
         // const postChallengeOnTelegramChannel = buildPostChallengeOnTelegramChannel(
         //     dataAccess,
@@ -40,7 +46,7 @@ module.exports = function(
         const services =  Object.freeze(
             {
                 setWebhook,
-                // getAllChallengeByEvent,
+                proccessMessage,
                 // postChallengeOnTelegramChannel
             }
         );

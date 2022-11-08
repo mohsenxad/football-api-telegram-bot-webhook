@@ -31,14 +31,31 @@ app.get('/isAlive',
 
 app.post('/webhook',
     async (req, res) => {
-        console.log(req.body);
-        const result = {
-            ok: true
-        };
-        sendResult(
-            res,
-            result
-        )
+        try 
+            {
+                //console.log(JSON.stringify(req.body));
+                const processMessageResult = await telegramBotServices.proccessMessage(req.body);
+        
+                const result = {
+                    ok: processMessageResult
+                };
+                sendResult(
+                    res,
+                    result
+                )
+            }
+        catch (error)
+            {
+                console.log(error);
+                const result = {
+                    ok: false
+                };
+                sendResult(
+                    res,
+                    result
+                )
+            }
+        
 
     }
 )

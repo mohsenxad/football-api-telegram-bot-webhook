@@ -15,12 +15,7 @@ module.exports = function buildSetWebhook
                     webhookUrl
                 );
 
-                console.log(options);
-
-        
-                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`;
-                
-                console.log(url);
+                const url = `https://api.telegram.org/bot${BOT_TOKEN}/setWebhook`;
                 
                 const request = await fetch(
                     url,
@@ -28,8 +23,6 @@ module.exports = function buildSetWebhook
                 );
         
                 const response = await request.json();
-
-                console.log(response);
 
                 const setWebhookResult = trasnlateSetWebhookResponse(response);
 
