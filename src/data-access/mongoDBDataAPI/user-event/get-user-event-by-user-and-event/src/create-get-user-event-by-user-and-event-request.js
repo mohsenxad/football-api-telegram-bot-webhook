@@ -1,13 +1,13 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateGetUserEventByUserAndEventRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createGetUserEventByUserAndEventRequest
         (
             userId,
-            challengeId
+            eventId
         )
             {
                 const query = {
@@ -15,9 +15,9 @@ module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
                         { 
                             "$oid": userId
                         },
-                    "challenge": 
+                    "event": 
                     { 
-                        "$oid": challengeId
+                        "$oid": eventId
                     }
                 };
 
@@ -30,7 +30,7 @@ module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
 
                 const body = JSON.stringify(
                     {
-                        collection:"userChallenges",
+                        collection:"userEvents",
                         database:"Football",
                         dataSource:"FootballDB",
                         filter: query,

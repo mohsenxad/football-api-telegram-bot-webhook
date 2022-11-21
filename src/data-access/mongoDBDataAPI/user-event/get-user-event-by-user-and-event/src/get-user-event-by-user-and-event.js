@@ -1,20 +1,20 @@
-module.exports = function buildGetUserChallengeByUserAndChallenge
+module.exports = function buildGetUserEventByUserAndEvent
 (
     APPID,
     fetch,
-    createGetUserChallengeByUserAndChallengeRequest,
-    translateGetUserChallengeByUserAndChallengeResponse  
+    createGetUserEventByUserAndEventRequest,
+    translateGetUserEventByUserAndEventResponse  
 )
     {
-        return async function getUserChallengeByUserAndChallenge
+        return async function getUserEventByUserAndEvent
         (
             userId,
-            challengeId
+            eventId
         )
             {
-                const options = createGetUserChallengeByUserAndChallengeRequest(
+                const options = createGetUserEventByUserAndEventRequest(
                     userId,
-                    challengeId
+                    eventId
                 );
         
                 const url = `https://data.mongodb-api.com/app/${APPID}/endpoint/data/v1/action/findOne`;
@@ -26,10 +26,10 @@ module.exports = function buildGetUserChallengeByUserAndChallenge
         
                 const response = await request.json();
 
-                const userChallenge = translateGetUserChallengeByUserAndChallengeResponse(
+                const userEvent = translateGetUserEventByUserAndEventResponse(
                     response
                 );
 
-                return userChallenge;
+                return userEvent;
             }
     }

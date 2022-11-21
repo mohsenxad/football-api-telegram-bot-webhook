@@ -1,49 +1,49 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateDecreaseUserCreditRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createDecreaseUserCreditRequest
         (
             userId,
-            challengeId
+            decreaseValue
         )
             {
                 const query = {
-                    "user": 
+                    "_id": 
                         { 
                             "$oid": userId
-                        },
-                    "challenge": 
-                    { 
-                        "$oid": challengeId
+                        } 
+                };
+    
+                const update = {
+                    "$inc": {
+                        credit: decreaseValue * -1
                     }
                 };
-
+    
                 const headers = {
                     "api-key": apikey,
                     "content-type":"application/json"
                 };
-
-                const projection = {}
-
+    
                 const body = JSON.stringify(
                     {
-                        collection:"userChallenges",
+                        collection:"users",
                         database:"Football",
                         dataSource:"FootballDB",
                         filter: query,
-                        projection:projection
+                        update: update
                     }
                 );
-        
-                var options= {
+    
+                var options = {
                     method:"POST",
                     headers: headers,
                     body: body
                 };
-        
+    
                 if(proxyAgent){
                     options.agent = proxyAgent;
                 }

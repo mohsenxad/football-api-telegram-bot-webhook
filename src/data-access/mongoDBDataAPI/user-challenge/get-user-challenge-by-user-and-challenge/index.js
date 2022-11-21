@@ -1,5 +1,5 @@
 const buildGetUserChallengeByUserAndChallenge = require('./src/get-user-challenge-by-user-and-challenge');
-const createGetUserChallengeByUserAndChallengeRequest = require('./src/create-get-user-challenge-by-user-and-challenge-request');
+const buildCreateGetUserChallengeByUserAndChallengeRequest = require('./src/create-get-user-challenge-by-user-and-challenge-request');
 const buildTranslateGetUserChallengeByUserAndChallengeResponse = require('./src/translate-get-user-challenge-by-user-and-challenge-response');
 
 module.exports = function(
@@ -10,14 +10,14 @@ module.exports = function(
 )
     {
         const translateGetUserChallengeByUserAndChallengeResponse = buildTranslateGetUserChallengeByUserAndChallengeResponse();
-        const getUserChallengeByUserAndChallengeRequest = createGetUserChallengeByUserAndChallengeRequest(
+        const createGetUserChallengeByUserAndChallengeRequest = buildCreateGetUserChallengeByUserAndChallengeRequest(
             APIKEY,
             proxyAgent
         );
         const getUserChallengeByUserAndChallenge = buildGetUserChallengeByUserAndChallenge(
             APPID,
             fetch,
-            getUserChallengeByUserAndChallengeRequest,
+            createGetUserChallengeByUserAndChallengeRequest,
             translateGetUserChallengeByUserAndChallengeResponse
         );
 

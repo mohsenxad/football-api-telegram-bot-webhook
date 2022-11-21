@@ -1,42 +1,27 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateAddUserEventRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createAddUserEventRequest
         (
-            userId,
-            challengeId
+            userEvent
         )
             {
-                const query = {
-                    "user": 
-                        { 
-                            "$oid": userId
-                        },
-                    "challenge": 
-                    { 
-                        "$oid": challengeId
-                    }
-                };
-
                 const headers = {
                     "api-key": apikey,
                     "content-type":"application/json"
                 };
-
-                const projection = {}
-
+        
                 const body = JSON.stringify(
                     {
-                        collection:"userChallenges",
+                        collection:"userEvents",
                         database:"Football",
                         dataSource:"FootballDB",
-                        filter: query,
-                        projection:projection
+                        document: userEvent.toBson()
                     }
-                );
+                )
         
                 var options= {
                     method:"POST",
@@ -44,10 +29,10 @@ module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
                     body: body
                 };
         
+        
                 if(proxyAgent){
                     options.agent = proxyAgent;
                 }
-        
         
                 return options;
             }

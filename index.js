@@ -33,7 +33,7 @@ app.post('/webhook',
     async (req, res) => {
         try 
             {
-                //console.log(JSON.stringify(req.body));
+                console.log(JSON.stringify(req.body));
                 const processMessageResult = await telegramBotServices.proccessMessage(req.body);
         
                 const result = {

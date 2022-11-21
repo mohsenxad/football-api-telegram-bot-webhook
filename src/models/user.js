@@ -9,7 +9,8 @@ module.exports = function buildMakeUser
                 username,
                 first_name,
                 last_name,
-                language_code
+                language_code,
+                credit = 0
             }
         )
             {
@@ -25,6 +26,7 @@ module.exports = function buildMakeUser
                         getTelegramFirstname: () => first_name,
                         getTelegramLastname: () => last_name,
                         getTelegramLanguageCode: () => language_code,
+                        getCredit: ()=> credit,
                         toBson: toBson,
                     }
                 );
@@ -40,7 +42,8 @@ module.exports = function buildMakeUser
                         telegramUsername: username,
                         telegramFirstname: first_name,
                         telegramLastname: last_name,
-                        telegramLanguageCode: language_code
+                        telegramLanguageCode: language_code,
+                        credit:credit
                     }
                 }
 

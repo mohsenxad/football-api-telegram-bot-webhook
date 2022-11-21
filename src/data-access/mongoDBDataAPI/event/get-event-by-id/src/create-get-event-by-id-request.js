@@ -1,42 +1,34 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateGetEventByIdRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createGetEventByIdRequest
         (
-            userId,
-            challengeId
+            eventId
         )
             {
                 const query = {
-                    "user": 
+                    "_id": 
                         { 
-                            "$oid": userId
-                        },
-                    "challenge": 
-                    { 
-                        "$oid": challengeId
-                    }
+                            "$oid": eventId
+                        } 
                 };
 
                 const headers = {
                     "api-key": apikey,
                     "content-type":"application/json"
                 };
-
-                const projection = {}
-
+        
                 const body = JSON.stringify(
                     {
-                        collection:"userChallenges",
+                        collection:"events",
                         database:"Football",
                         dataSource:"FootballDB",
-                        filter: query,
-                        projection:projection
+                        filter: query
                     }
-                );
+                )
         
                 var options= {
                     method:"POST",
@@ -44,10 +36,10 @@ module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
                     body: body
                 };
         
+        
                 if(proxyAgent){
                     options.agent = proxyAgent;
                 }
-        
         
                 return options;
             }

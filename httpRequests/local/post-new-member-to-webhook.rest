@@ -1,0 +1,4 @@
+POST http://localhost:7001/webhook
+Content-Type: application/json
+
+{"update_id":833038363,"message":{"message_id":13,"from":{"id":56512529,"is_bot":false,"first_name":"Xad","username":"MohsenXad","language_code":"en"},"chat":{"id":-1001821221533,"title":"ایران-انگلیس","username":"iran_england_2022","type":"supergroup"},"date":1668685722,"new_chat_participant":{"id":99557247,"is_bot":false,"first_name":"h","last_name":"m","username":"mhosmo"},"new_chat_member":{"id":99557247,"is_bot":false,"first_name":"h","last_name":"m","username":"mhosmo"},"new_chat_members":[{"id":99557247,"is_bot":false,"first_name":"h","last_name":"m","username":"mhosmo"},{"id":938518374,"is_bot":false,"first_name":"Poya","last_name":"Nop","username":"Nopomas"}]}}

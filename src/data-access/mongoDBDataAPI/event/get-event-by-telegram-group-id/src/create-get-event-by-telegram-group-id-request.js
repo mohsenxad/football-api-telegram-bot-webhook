@@ -1,42 +1,31 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateGetEventByTelegramGroupIdRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createGetEventByTelegramGroupIdRequest
         (
-            userId,
-            challengeId
+            telegramGroupId
         )
             {
                 const query = {
-                    "user": 
-                        { 
-                            "$oid": userId
-                        },
-                    "challenge": 
-                    { 
-                        "$oid": challengeId
-                    }
+                    "telegramGroupId":telegramGroupId.toString()
                 };
 
                 const headers = {
                     "api-key": apikey,
                     "content-type":"application/json"
                 };
-
-                const projection = {}
-
+        
                 const body = JSON.stringify(
                     {
-                        collection:"userChallenges",
+                        collection:"events",
                         database:"Football",
                         dataSource:"FootballDB",
-                        filter: query,
-                        projection:projection
+                        filter: query
                     }
-                );
+                )
         
                 var options= {
                     method:"POST",
@@ -44,10 +33,10 @@ module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
                     body: body
                 };
         
+        
                 if(proxyAgent){
                     options.agent = proxyAgent;
                 }
-        
         
                 return options;
             }

@@ -22,12 +22,26 @@ module.exports = function(
             fetch
         );
 
+        const { sendMessage } = require('./send-message')(
+            BOT_TOKEN,
+            proxyAgent,
+            fetch
+        )
+
+        const { getChatMember } = require('./get-chat-member')(
+            BOT_TOKEN,
+            proxyAgent,
+            fetch
+        )
+
         
 
         const services = Object.freeze(
             {
                 setWebhook,
-                answerCallbackQuery
+                answerCallbackQuery,
+                sendMessage,
+                getChatMember
             }
         )
 

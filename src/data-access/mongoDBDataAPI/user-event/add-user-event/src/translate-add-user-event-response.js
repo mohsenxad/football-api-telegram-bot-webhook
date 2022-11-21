@@ -1,7 +1,7 @@
-module.exports = function buildTranslateAddUserChallengeResponse
+module.exports = function buildTranslateAddUserEventResponse
 ()
     {
-        return function translateAddUserChallengeResponse
+        return function translateAddUserEventResponse
         (
             response
         )

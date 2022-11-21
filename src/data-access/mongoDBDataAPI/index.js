@@ -66,6 +66,67 @@ module.exports  = function
             proxyAgent,
             fetch
         )
+
+        const { getEventById } = require('./event/get-event-by-id')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        const { getEventByTelegramGroupId } = require('./event/get-event-by-telegram-group-id')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        
+
+        
+        const { addUserEvent } = require('./user-event/add-user-event')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        
+        const { getUserEventByUserAndEvent } = require('./user-event/get-user-event-by-user-and-event')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        
+        const { increaseUserCredit } = require('./user/increase-user-credit')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        const { decreaseUserCredit } = require('./user/decrease-user-credit')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
+
+        const { updateUserChallengeResult } = require('./user-challenge/update-user-challenge-result')
+        (
+            APPID,
+            APIKEY,
+            proxyAgent,
+            fetch
+        )
         
 
         return Object.freeze(
@@ -74,7 +135,14 @@ module.exports  = function
                 getUserByTelegramId,
                 getChallengeByTelegramMessageId,
                 getUserChallengeByUserAndChallenge,
-                addUserChallenge
+                addUserChallenge,
+                getEventById,
+                addUserEvent,
+                getUserEventByUserAndEvent,
+                getEventByTelegramGroupId,
+                increaseUserCredit,
+                decreaseUserCredit,
+                updateUserChallengeResult
             }
         );
 

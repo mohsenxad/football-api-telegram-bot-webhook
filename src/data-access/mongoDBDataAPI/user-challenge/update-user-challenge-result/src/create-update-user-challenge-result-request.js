@@ -1,49 +1,49 @@
-module.exports = function buildCreateGetUserChallengeByUserAndChallengeRequest
+module.exports = function buildCreateUpdateUserChallengeResultRequest
 (
     apikey,
     proxyAgent
 )
     {
-        return function createGetUserChallengeByUserAndChallengeRequest
+        return function createUpdateUserChallengeResultRequest
         (
-            userId,
-            challengeId
+            userChallengeId,
+            challengeOption
         )
             {
                 const query = {
-                    "user": 
+                    "_id": 
                         { 
-                            "$oid": userId
-                        },
-                    "challenge": 
-                    { 
-                        "$oid": challengeId
+                            "$oid": userChallengeId
+                        } 
+                };
+    
+                const update = {
+                    challengeOption: {
+                        "$oid": challengeOption,
                     }
                 };
-
+    
                 const headers = {
                     "api-key": apikey,
                     "content-type":"application/json"
                 };
-
-                const projection = {}
-
+    
                 const body = JSON.stringify(
                     {
                         collection:"userChallenges",
                         database:"Football",
                         dataSource:"FootballDB",
                         filter: query,
-                        projection:projection
+                        update: update
                     }
                 );
-        
-                var options= {
+    
+                var options = {
                     method:"POST",
                     headers: headers,
                     body: body
                 };
-        
+    
                 if(proxyAgent){
                     options.agent = proxyAgent;
                 }

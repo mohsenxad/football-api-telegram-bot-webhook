@@ -1,5 +1,10 @@
 const buildSetWebhook = require('./set-webhook');
 const buildProccessMessage = require('./proccess-message');
+const buildProcessCallbackQuery = require('./process-callback-query');
+const buildProcessNewMemberInGroup = require('./process-new-member-in-group');
+
+const buildIsUserInTelegramGroup = require('./is-user-in-telegram-group');
+const buildGetOrCreateUser = require('./get-or-create-user');
 // const buildPostChallengeOnTelegramChannel = require('./post-challenge-on-telegram-channel');
 
 module.exports = function(
@@ -32,9 +37,33 @@ module.exports = function(
         );
         setWebhook(WEBHOOK_URL)
 
-        const proccessMessage = buildProccessMessage(
+        const processNewMemberInGroup = buildProcessNewMemberInGroup(
             dataAccess,
             providerServices
+        )
+
+       
+
+        const getOrCreateUser = buildGetOrCreateUser(
+            dataAccess
+        )
+
+        const isUserInTelegramGroup = buildIsUserInTelegramGroup(
+            providerServices 
+        )
+
+        const processCallbackQuery = buildProcessCallbackQuery(
+            dataAccess,
+            providerServices,
+            isUserInTelegramGroup
+        );
+
+        const proccessMessage = buildProccessMessage(
+            dataAccess,
+            providerServices,
+            isUserInTelegramGroup,
+            processNewMemberInGroup,
+            processCallbackQuery
         );
         
         // const postChallengeOnTelegramChannel = buildPostChallengeOnTelegramChannel(
